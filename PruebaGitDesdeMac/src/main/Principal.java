@@ -7,6 +7,7 @@ public class Principal {
 		//Desde windows
 		System.out.println("Saludos desde WINDOWS:");
 		//Fin windows
+		System.out.println("Trabajando desde MAC");
 
 	}
 
