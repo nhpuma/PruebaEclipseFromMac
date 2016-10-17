@@ -66,6 +66,6 @@ public class Configurado extends JFrame implements ActionListener {
 		}
 	}
 	protected void actionPerformedBtnMostrar(ActionEvent e) {
-		txtS.setText("Hola Mundo");
+		txtS.setText("Hola Mundo Niel");
 	}
 }
