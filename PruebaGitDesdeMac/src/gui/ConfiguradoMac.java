@@ -11,10 +11,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 
-public class Principal extends JFrame {
+public class ConfiguradoMac extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
+	private JButton btnMostrar;
+	private JScrollPane scrollPane;
+	private JTextArea txtS;
 
 	/**
 	 * Launch the application.
@@ -23,7 +27,7 @@ public class Principal extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Principal frame = new Principal();
+					ConfiguradoMac frame = new ConfiguradoMac();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,8 +39,8 @@ public class Principal extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Principal() {
-		setTitle("Formulario Principal");
+	public ConfiguradoMac() {
+		setTitle("Configurado desde MAC");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -44,20 +48,25 @@ public class Principal extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnMostrar = new JButton("Mostrar");
-		btnMostrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//El evento no se puede llamar
-			}
-		});
+		btnMostrar = new JButton("Mostrar");
+		btnMostrar.addActionListener(this);
 		btnMostrar.setBounds(327, 6, 117, 29);
 		contentPane.add(btnMostrar);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(20, 6, 295, 253);
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(18, 6, 293, 250);
 		contentPane.add(scrollPane);
 		
-		JTextArea txtS = new JTextArea();
+		txtS = new JTextArea();
+		txtS.setFont(new Font("Monospaced", Font.PLAIN, 13));
 		scrollPane.setViewportView(txtS);
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnMostrar) {
+			btnMostrarActionPerformed(e);
+		}
+	}
+	protected void btnMostrarActionPerformed(ActionEvent e) {
+		txtS.setText("Saludos desde la MAC");
 	}
 }
